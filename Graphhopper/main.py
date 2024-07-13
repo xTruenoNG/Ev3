@@ -52,6 +52,10 @@ def geocodificacion(location, key):
 def CreateMap():
     
     m = folium.Map(location=[(origen[1] + destino[1]) / 2, (origen[2] + destino[2]) / 2], zoom_start=13)
+
+    folium.Marker([origen[1], origen[2]], tooltip=origen[3], icon=folium.Icon(color='green')).add_to(m)
+    folium.Marker([destino[1], destino[2]], tooltip=destino[3], icon=folium.Icon(color='red')).add_to(m)
+
     print("\n Mapa Guardado Como 'Map.html'")
     m.save("Map.html")
     
